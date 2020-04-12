@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WPToGOHugo.Console
+namespace WPToGOHugo.TestConsole
 {
     class Program
     {

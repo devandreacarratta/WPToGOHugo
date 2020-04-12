@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPToGOHugo.Console", "WPToGOHugo.Console\WPToGOHugo.Console.csproj", "{1EA470EC-295C-4731-AE48-3C2EE3E0775A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPToGOHugo.TestConsole", "WPToGOHugo.TestConsole\WPToGOHugo.TestConsole.csproj", "{1EA470EC-295C-4731-AE48-3C2EE3E0775A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPToGOHugo.Core", "WPToGOHugo.Core\WPToGOHugo.Core.csproj", "{5C0FDFFE-6130-4D64-9E81-549B7E1F6668}"
 EndProject
