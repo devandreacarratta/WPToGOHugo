@@ -1,5 +1,6 @@
 ﻿using WPToGOHugo.HugoEntity;
 using WPToGOHugo.WPEntity;
+using WPToGOHugo.Cleaner;
 
 namespace WPToGOHugo
 {
@@ -11,6 +12,8 @@ namespace WPToGOHugo
         {
             _json = json;
         }
+
+        public bool RunCleanerDiviCodeSnippetBase64 { get; set; } = false;
 
         public string Run()
         {
@@ -40,11 +43,15 @@ namespace WPToGOHugo
         {
             FileSchemaEntityCollection schemaEntities = new FileSchemaEntityCollection();
 
-            CleanerHelper cleaner = new CleanerHelper();
+            CleanerDiviCodeSnippetBase64 cleanerBase64 = (RunCleanerDiviCodeSnippetBase64 ? new CleanerDiviCodeSnippetBase64() : null);
 
             foreach (var item in posts)
             {
-                item.content = cleaner.FakeCleanerMethod(item.content);
+
+                if (RunCleanerDiviCodeSnippetBase64)
+                {
+                    item.content = cleanerBase64.Run(item.content);
+                }
 
                 schemaEntities.Add(
                     PostConverter.Run(item)

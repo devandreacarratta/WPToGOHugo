@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Text;
 
 namespace WPToGOHugo.HugoEntity
 {
@@ -24,9 +25,17 @@ namespace WPToGOHugo.HugoEntity
         {
             get
             {
-                string tagJoin = string.Join(',', TagsList);
+                StringBuilder sb = new StringBuilder();
+                if (TagsList != null && TagsList.Count > 0)
+                {
+                    foreach (var item in TagsList)
+                    {
+                        sb.Append($"'{item}',");
+                    }
+                    sb.Length -= 1;
+                }
 
-                return $"[{tagJoin}]";
+                return sb.ToString();
             }
         }
 
@@ -34,9 +43,17 @@ namespace WPToGOHugo.HugoEntity
         {
             get
             {
-                string catJoin = string.Join(',', CategoriesList);
+                StringBuilder sb = new StringBuilder();
+                if (CategoriesList != null && CategoriesList.Count > 0)
+                {
+                    foreach (var item in CategoriesList)
+                    {
+                        sb.Append($"'{item}',");
+                    }
+                    sb.Length -= 1;
+                }
 
-                return $"[{catJoin}]";
+                return sb.ToString();
             }
         }
 

@@ -25,9 +25,9 @@ namespace WPToGOHugo
             sb.AppendLine("draft: false");
             sb.AppendLine($"tags: [{fileSchema.tags}]");
             sb.AppendLine($"categories: [{fileSchema.categories}]");
-            sb.AppendLine($"seometadesc: [{fileSchema.seo_metadesc}]");
-            sb.AppendLine($"seofocuskw: [{fileSchema.seo_focuskw}]");
-            sb.AppendLine($"seoimage: [{fileSchema.seo_image}]");
+            sb.AppendLine($"seometadesc: '{fileSchema.seo_metadesc}'");
+            sb.AppendLine($"seofocuskw: '{fileSchema.seo_focuskw}'");
+            sb.AppendLine($"seoimage: '{fileSchema.seo_image}'");
             sb.AppendLine("---");
             sb.AppendLine($"{fileSchema.content}");
             sb.AppendLine("");

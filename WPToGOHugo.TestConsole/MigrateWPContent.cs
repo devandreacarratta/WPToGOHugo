@@ -4,7 +4,10 @@
     {
         public static string Run(string content)
         {
-            Engine engine = new Engine(content);
+            Engine engine = new Engine(content)
+            {
+                RunCleanerDiviCodeSnippetBase64 = true,
+            };
             return engine.Run();
         }
     }
