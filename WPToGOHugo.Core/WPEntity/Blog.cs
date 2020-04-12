@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WPToGOHugo.Core.WPEntity
 {
-    public class Blog
+    internal class Blog
     {
         [JsonProperty("id")]
         public long Id { get; set; }

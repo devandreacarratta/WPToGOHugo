@@ -2,7 +2,7 @@
 
 namespace WPToGOHugo.Core.WPEntity
 {
-    public  class Category
+    internal class Category
     {
         [JsonProperty("term_id")]
         public long TermId { get; set; }
