@@ -37,7 +37,6 @@ namespace WPToGOHugo.TestConsole
                     }
 
                     content = File.ReadAllText(source);
-
                 }
             }
             catch
@@ -47,7 +46,18 @@ namespace WPToGOHugo.TestConsole
             }
 
 
-            string aaa = MigrateWPContent.Run(content);
+            string json = MigrateWPContent.Run(content);
+
+            SchemaToFileResultCollection results = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaToFileResultCollection>(json);
+
+            foreach (var item in results)
+            {
+                File.WriteAllText(
+                    Path.Combine(Helper.OutputFolder, item.FileName),
+                    item.FileContent
+                );
+
+            }
 
 
 

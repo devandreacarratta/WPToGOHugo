@@ -1,38 +1,32 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace WPToGOHugo
 {
+
+    /// <summary>
+    /// Implemented method for clean text before import in md file (ex. shortcode via regex)
+    /// </summary>
     internal class CleanerHelper
     {
-
-        public static string DiviCodeSnippetFromBase64(string content)
+        public CleanerHelper()
         {
-            StringBuilder sb = new StringBuilder();
-            string pattern = @"(\[et_pb_text\s((.*?))\](?<pretextcontent>(.*?))\[\/et_pb_text\])|(\[et_pb_dmb_code_snippet\s(.*?)\](?<code64>.*?)\[.*?\])";
-            var items = Regex.Matches(content, pattern, RegexOptions.IgnoreCase);
-            foreach (Match match in items)
-            {
-                string section = match.Groups["section"].Value;
-                if (string.IsNullOrEmpty(section) == false)
-                {
-                    sb.AppendLine(section);
-                }
-                string pre = match.Groups["pretextcontent"].Value;
-                if (string.IsNullOrEmpty(pre) == false)
-                {
-                    sb.AppendLine(pre);
-                }
-                string base64Code = match.Groups["code64"].Value;
-                if (string.IsNullOrEmpty(base64Code) == false) { 
-                    sb.AppendLine(TextHelper.Base64Decode(base64Code)); 
-                }
-            }
-            string output = sb.ToString();
-            return output;
         }
+
+        public string DoAll(string value)
+        {
+            value = FakeCleanerMethod(value);
+
+            return value;
+        }
+
+        public string FakeCleanerMethod(string value)
+        {
+            return value;
+        }
+
 
     }
 }

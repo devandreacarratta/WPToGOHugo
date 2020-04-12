@@ -6,12 +6,12 @@ using WPToGOHugo.HugoEntity;
 namespace WPToGOHugo
 {
 
-    internal class SchemaToFileResultCollection : List<SchemaToFileResult>
+    public class SchemaToFileResultCollection : List<SchemaToFileResult>
     {
 
     }
 
-    internal class SchemaToFileResult
+    public class SchemaToFileResult
     {
         public string FileName { get; set; }
         public string FileContent { get; set; }
