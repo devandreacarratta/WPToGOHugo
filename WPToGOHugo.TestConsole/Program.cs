@@ -46,7 +46,7 @@ namespace WPToGOHugo.TestConsole
             }
 
             Engine engine = new Engine(content);
-            engine.Run();
+            var jsonfile = engine.Run();
 
 
 

@@ -21,7 +21,8 @@ namespace WPToGOHugo
                 seo_focuskw = post.seo_focuskw,
                 seo_image = post.seo_image,
                 seo_metadesc = post.seo_metadesc,
-                title = post.title
+                title = post.title,
+                content = post.content,
             };
 
             if(post.tags.TagArray !=null && post.tags.TagArray.Count != 0)

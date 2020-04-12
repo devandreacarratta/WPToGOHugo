@@ -22,8 +22,8 @@ namespace WPToGOHugo.WPEntity
         
         public string link { get; set; }
 
-        
-        public List<Category> category { get; set; }
+
+        public List<Category> category { get; set; } = new List<Category>();
 
         
         public Tags tags { get; set; }

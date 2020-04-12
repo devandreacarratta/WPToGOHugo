@@ -18,17 +18,25 @@ namespace WPToGOHugo
         {
             var posts = Newtonsoft.Json.JsonConvert.DeserializeObject< PostCollection>(_json, JSONHelper.Converter.Settings);
 
-            FileSchemaEntityCollection files = new FileSchemaEntityCollection();
+            FileSchemaEntityCollection schemaEntities = new FileSchemaEntityCollection();
 
             foreach (var item in posts)
             {
-                files.Add(
+                schemaEntities.Add(
                     PostConverter.Run(item)
                 );
             }
-               
 
-            return string.Empty;
+            var files = new SchemaToFileResultCollection();
+            foreach (var item in schemaEntities)
+            {
+                files.Add(
+                        SchemaToFile.Run(item)
+                    ) ;
+            }
+
+            var result = Newtonsoft.Json.JsonConvert.SerializeObject(files);
+            return result;
         }
 
         

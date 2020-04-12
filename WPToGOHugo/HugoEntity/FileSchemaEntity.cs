@@ -12,6 +12,7 @@ namespace WPToGOHugo.HugoEntity
         public string FileName { get; set; }
 
         public string title { get; set; }
+        public string content { get; set; }
         public string date { get; set; }
 
         public bool draft { get; set; }
