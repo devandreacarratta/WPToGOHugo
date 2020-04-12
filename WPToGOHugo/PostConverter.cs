@@ -11,7 +11,7 @@ namespace WPToGOHugo
         {
             FileSchemaEntity result = new FileSchemaEntity()
             {
-                CategoriesList = post.category.Select(x => x.cat_name).OrderBy(x => x).ToList(),
+                CategoriesList = new List<string>(),
                 TagsList = new List<string>(),
                 date = post.pubDate,
                 draft = false,
@@ -22,6 +22,11 @@ namespace WPToGOHugo
                 title = post.title,
                 content = post.content,
             };
+
+            if (post.category != null && post.category.Count != 0)
+            {
+                result.CategoriesList = post.category.Select(x => x.name).OrderBy(x => x).ToList();
+            }
 
             if (post.tags.TagArray != null && post.tags.TagArray.Count != 0)
             {
