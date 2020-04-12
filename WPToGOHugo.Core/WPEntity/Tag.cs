@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WPToGOHugo.Core.WPEntity
+namespace WPToGOHugo.WPEntity
 {
     internal class Tag
     {

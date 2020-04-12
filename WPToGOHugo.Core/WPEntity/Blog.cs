@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace WPToGOHugo.Core.WPEntity
+namespace WPToGOHugo.WPEntity
 {
     internal class Blog
     {
