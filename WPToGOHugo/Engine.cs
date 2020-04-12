@@ -22,6 +22,8 @@ namespace WPToGOHugo
 
             foreach (var item in posts)
             {
+                item.content = CleanerHelper.DiviCodeSnippetFromBase64(item.content);
+
                 schemaEntities.Add(
                     PostConverter.Run(item)
                 );

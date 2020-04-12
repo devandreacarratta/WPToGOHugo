@@ -8,6 +8,7 @@ namespace WPToGOHugo.TestConsole
     {
         static void Main(string[] args)
         {
+
             if (args == null || args.Length == 0)
             {
                 Console.WriteLine("Missing file name");
@@ -45,9 +46,8 @@ namespace WPToGOHugo.TestConsole
                 return;
             }
 
-            Engine engine = new Engine(content);
-            var jsonfile = engine.Run();
 
+            MigrateWPContent.Run(content);
 
 
 
