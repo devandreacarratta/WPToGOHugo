@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using WPToGOHugo.HugoEntity;
 using WPToGOHugo.WPEntity;
@@ -8,7 +7,6 @@ namespace WPToGOHugo
 {
     internal class PostConverter
     {
-
         public static FileSchemaEntity Run(Post post)
         {
             FileSchemaEntity result = new FileSchemaEntity()
@@ -25,14 +23,12 @@ namespace WPToGOHugo
                 content = post.content,
             };
 
-            if(post.tags.TagArray !=null && post.tags.TagArray.Count != 0)
+            if (post.tags.TagArray != null && post.tags.TagArray.Count != 0)
             {
                 result.TagsList = post.tags.TagArray.Select(x => x.name).OrderBy(x => x).ToList();
             }
 
             return result;
         }
-
-
     }
 }

@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace WPToGOHugo.HugoEntity
 {
-
     public class FileSchemaEntity
     {
         [JsonIgnore]
@@ -16,8 +13,10 @@ namespace WPToGOHugo.HugoEntity
         public string date { get; set; }
 
         public bool draft { get; set; }
+
         [JsonIgnore]
         public List<string> TagsList { get; set; } = new List<string>();
+
         [JsonIgnore]
         public List<string> CategoriesList { get; set; } = new List<string>();
 
@@ -44,6 +43,5 @@ namespace WPToGOHugo.HugoEntity
         public string seo_metadesc { get; set; }
         public string seo_image { get; set; }
         public string seo_focuskw { get; set; }
-
     }
 }

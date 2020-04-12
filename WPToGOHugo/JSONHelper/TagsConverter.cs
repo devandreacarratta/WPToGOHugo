@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using WPToGOHugo.WPEntity;
 
 namespace WPToGOHugo.JSONHelper
@@ -17,6 +16,7 @@ namespace WPToGOHugo.JSONHelper
                 case JsonToken.Boolean:
                     var boolValue = serializer.Deserialize<bool>(reader);
                     return new Tags { Bool = boolValue };
+
                 case JsonToken.StartArray:
                     var arrayValue = serializer.Deserialize<List<Tag>>(reader);
                     return new Tags { TagArray = arrayValue };
@@ -31,5 +31,4 @@ namespace WPToGOHugo.JSONHelper
 
         public static readonly TagsConverter Singleton = new TagsConverter();
     }
-
 }

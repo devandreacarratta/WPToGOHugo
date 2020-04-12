@@ -14,15 +14,6 @@ if ( !defined('ABSPATH') ) {
 
 
 function CleanContent( $content ) {
-
-    // Remove Divi Shortcut
-    $content = preg_replace('/\[\/?et_pb_text.*?\]/', '', $content);
-    $content = preg_replace('/\[\/?et_pb_section.*?\]/', '', $content);
-    $content = preg_replace('/\[\/?et_pb_row.*?\]/', '', $content);
-    $content = preg_replace('/\[\/?et_pb_column.*?\]/', '', $content);
-    $content = preg_replace('/\[\/?et_pb_post_title.*?\]/', '', $content);
-    // END : Remove Divi Shortcut
-
     return ($content) ;
 }
 

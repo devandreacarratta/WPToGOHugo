@@ -4,11 +4,10 @@ using System.Net.Http;
 
 namespace WPToGOHugo.TestConsole
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
             if (args == null || args.Length == 0)
             {
                 Console.WriteLine("Missing file name");
@@ -24,8 +23,8 @@ namespace WPToGOHugo.TestConsole
                 {
                     using (var client = new HttpClient())
                     {
-                        var result =  client.GetAsync(source).Result;
-                        content =  result.Content.ReadAsStringAsync().Result;
+                        var result = client.GetAsync(source).Result;
+                        content = result.Content.ReadAsStringAsync().Result;
                     }
                 }
                 else
@@ -45,7 +44,6 @@ namespace WPToGOHugo.TestConsole
                 return;
             }
 
-
             string json = MigrateWPContent.Run(content);
 
             SchemaToFileResultCollection results = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaToFileResultCollection>(json);
@@ -56,12 +54,7 @@ namespace WPToGOHugo.TestConsole
                     Path.Combine(Helper.OutputFolder, item.FileName),
                     item.FileContent
                 );
-
             }
-
-
-
-
         }
     }
 }

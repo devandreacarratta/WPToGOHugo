@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using WPToGOHugo.HugoEntity;
 
 namespace WPToGOHugo
 {
-
     public class SchemaToFileResultCollection : List<SchemaToFileResult>
     {
-
     }
 
     public class SchemaToFileResult
@@ -19,10 +16,8 @@ namespace WPToGOHugo
 
     internal class SchemaToFile
     {
-
         public static SchemaToFileResult Run(FileSchemaEntity fileSchema)
         {
-
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("---");
             sb.AppendLine($"title: '{fileSchema.title}'");
@@ -37,7 +32,6 @@ namespace WPToGOHugo
             sb.AppendLine($"{fileSchema.content}");
             sb.AppendLine("");
 
-
             SchemaToFileResult result = new SchemaToFileResult()
             {
                 FileContent = sb.ToString(),
@@ -45,10 +39,6 @@ namespace WPToGOHugo
             };
 
             return result;
-
-
         }
-            
-
     }
 }

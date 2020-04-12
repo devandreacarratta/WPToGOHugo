@@ -1,11 +1,5 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace WPToGOHugo
+﻿namespace WPToGOHugo
 {
-
     /// <summary>
     /// Implemented method for clean text before import in md file (ex. shortcode via regex)
     /// </summary>
@@ -26,7 +20,5 @@ namespace WPToGOHugo
         {
             return value;
         }
-
-
     }
 }

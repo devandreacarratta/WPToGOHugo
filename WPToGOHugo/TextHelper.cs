@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace WPToGOHugo
 {
-    class TextHelper
+    internal class TextHelper
     {
         public static string Base64Decode(string base64EncodedData)
         {

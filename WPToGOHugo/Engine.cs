@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WPToGOHugo.HugoEntity;
+﻿using WPToGOHugo.HugoEntity;
 using WPToGOHugo.WPEntity;
 
 namespace WPToGOHugo
@@ -9,6 +6,7 @@ namespace WPToGOHugo
     public class Engine
     {
         private string _json = string.Empty;
+
         public Engine(string json)
         {
             _json = json;
@@ -55,7 +53,5 @@ namespace WPToGOHugo
 
             return schemaEntities;
         }
-
-
     }
 }
