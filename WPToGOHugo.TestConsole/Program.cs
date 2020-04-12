@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace WPToGOHugo.TestConsole
 {
@@ -6,7 +7,46 @@ namespace WPToGOHugo.TestConsole
     {
         static void Main(string[] args)
         {
-            
+            if (args == null || args.Length == 0)
+            {
+                Console.WriteLine("Missing file name");
+                return;
+            }
+
+            string source = args[0];
+            string content = string.Empty;
+
+            try
+            {
+                if (source.StartsWith(Helper.HTTP) || source.StartsWith(Helper.HTTPS))
+                {
+
+                }
+                else
+                {
+                    if (File.Exists(source) == false)
+                    {
+                        Console.WriteLine("File is not valid");
+                        return;
+                    }
+
+                    content = File.ReadAllText(source);
+
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Unable to read content!!!");
+                return;
+            }
+
+            Engine engine = new Engine(content);
+            engine.Run();
+
+
+
+
+
         }
     }
 }
