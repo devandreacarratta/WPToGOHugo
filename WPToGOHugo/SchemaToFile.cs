@@ -1,34 +1,29 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using WPToGOHugo.HugoEntity;
 
 namespace WPToGOHugo
 {
-    public class SchemaToFileResultCollection : List<SchemaToFileResult>
-    {
-    }
-
-    public class SchemaToFileResult
-    {
-        public string FileName { get; set; }
-        public string FileContent { get; set; }
-    }
 
     internal class SchemaToFile
     {
+
+        private const string SPLIT_ROW = "---";
+
         public static SchemaToFileResult Run(FileSchemaEntity fileSchema)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("---");
-            sb.AppendLine($"title: '{fileSchema.title}'");
-            sb.AppendLine($"date: {fileSchema.date}");
+            sb.AppendLine(SPLIT_ROW);
+            sb.AppendLine($"title: '{TextHelper.CleanBeforeMD(fileSchema.title)}'");
+            sb.AppendLine($"description: '{TextHelper.CleanBeforeMD(fileSchema.title)}'");
+            sb.AppendLine($"author: '{TextHelper.CleanBeforeMD(fileSchema.author)}'");
+            sb.AppendLine($"date: {TextHelper.CleanBeforeMD(fileSchema.date)}");
             sb.AppendLine("draft: false");
             sb.AppendLine($"tags: [{fileSchema.tags}]");
             sb.AppendLine($"categories: [{fileSchema.categories}]");
-            sb.AppendLine($"seometadesc: '{fileSchema.seo_metadesc}'");
-            sb.AppendLine($"seofocuskw: '{fileSchema.seo_focuskw}'");
-            sb.AppendLine($"seoimage: '{fileSchema.seo_image}'");
-            sb.AppendLine("---");
+            sb.AppendLine($"seometadesc: '{TextHelper.CleanBeforeMD(fileSchema.seo_metadesc)}'");
+            sb.AppendLine($"seofocuskw: '{TextHelper.CleanBeforeMD(fileSchema.seo_focuskw)}'");
+            sb.AppendLine($"seoimage: '{TextHelper.CleanBeforeMD(fileSchema.seo_image)}'");
+            sb.AppendLine(SPLIT_ROW);
             sb.AppendLine($"{fileSchema.content}");
             sb.AppendLine("");
 

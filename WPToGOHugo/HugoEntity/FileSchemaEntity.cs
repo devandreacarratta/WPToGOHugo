@@ -8,7 +8,7 @@ namespace WPToGOHugo.HugoEntity
     {
         [JsonIgnore]
         public string FileName { get; set; }
-
+        public string author { get; set; }
         public string title { get; set; }
         public string content { get; set; }
         public string date { get; set; }
@@ -30,7 +30,7 @@ namespace WPToGOHugo.HugoEntity
                 {
                     foreach (var item in TagsList)
                     {
-                        sb.Append($"'{item}',");
+                        sb.Append($"'{TextHelper.CleanBeforeMD(item)}',");
                     }
                     sb.Length -= 1;
                 }
@@ -48,7 +48,7 @@ namespace WPToGOHugo.HugoEntity
                 {
                     foreach (var item in CategoriesList)
                     {
-                        sb.Append($"'{item}',");
+                        sb.Append($"'{TextHelper.CleanBeforeMD(item)}',");
                     }
                     sb.Length -= 1;
                 }

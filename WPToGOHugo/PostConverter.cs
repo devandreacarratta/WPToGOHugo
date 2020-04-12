@@ -21,6 +21,7 @@ namespace WPToGOHugo
                 seo_metadesc = post.seo_metadesc,
                 title = post.title,
                 content = post.content,
+                author = post.dcCreator,
             };
 
             if (post.category != null && post.category.Count != 0)
