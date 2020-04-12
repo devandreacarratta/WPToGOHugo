@@ -7,10 +7,10 @@ namespace WPToGOHugo.TestConsole
     public class MigrateWPContent
     {
 
-        public static void Run(string content)
+        public static string Run(string content)
         {
             Engine engine = new Engine(content);
-            var jsonfile = engine.Run();
+            return engine.Run();
         }
 
     }
