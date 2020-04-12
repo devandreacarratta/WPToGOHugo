@@ -47,7 +47,7 @@ namespace WPToGOHugo.TestConsole
             }
 
 
-            MigrateWPContent.Run(content);
+            string aaa = MigrateWPContent.Run(content);
 
 
 
