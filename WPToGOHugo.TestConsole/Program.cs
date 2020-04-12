@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
 
 namespace WPToGOHugo.TestConsole
 {
@@ -20,7 +21,11 @@ namespace WPToGOHugo.TestConsole
             {
                 if (source.StartsWith(Helper.HTTP) || source.StartsWith(Helper.HTTPS))
                 {
-
+                    using (var client = new HttpClient())
+                    {
+                        var result =  client.GetAsync(source).Result;
+                        content =  result.Content.ReadAsStringAsync().Result;
+                    }
                 }
                 else
                 {

@@ -1,37 +1,47 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace WPToGOHugo.WPEntity
 {
+    internal struct Tags
+    {
+        public bool? Bool;
+        public List<Tag> TagArray;
+
+        public static implicit operator Tags(bool Bool) => new Tags { Bool = Bool };
+        public static implicit operator Tags(List<Tag> TagArray) => new Tags { TagArray = TagArray };
+    }
+
     internal class Tag
     {
-        [JsonProperty("term_id")]
-        public long TermId { get; set; }
+        
+        public long term_id { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        
+        public string name { get; set; }
 
-        [JsonProperty("slug")]
-        public string Slug { get; set; }
+        
+        public string slug { get; set; }
 
-        [JsonProperty("term_group")]
-        public long TermGroup { get; set; }
+        
+        public long term_group { get; set; }
 
-        [JsonProperty("term_taxonomy_id")]
-        public long TermTaxonomyId { get; set; }
+        
+        public long term_taxonomy_id { get; set; }
 
-        [JsonProperty("taxonomy")]
-        public string Taxonomy { get; set; }
+        
+        public string taxonomy { get; set; }
 
-        [JsonProperty("description")]
-        public string Description { get; set; }
+        
+        public string description { get; set; }
 
-        [JsonProperty("parent")]
-        public long Parent { get; set; }
+        
+        public long parent { get; set; }
 
-        [JsonProperty("count")]
-        public long Count { get; set; }
+        
+        public long count { get; set; }
 
-        [JsonProperty("filter")]
-        public string Filter { get; set; }
+        
+        public string filter { get; set; }
     }
 }

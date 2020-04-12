@@ -15,10 +15,14 @@ namespace WPToGOHugo
 
         public string Run()
         {
-            //var posts = Newtonsoft.Json.JsonConvert.DeserializeObject< PostCollection>(_json);
+            var posts = Newtonsoft.Json.JsonConvert.DeserializeObject< PostCollection>(_json, JSONHelper.Converter.Settings);
+
+               
 
             return string.Empty;
         }
+
+        
 
     }
 }

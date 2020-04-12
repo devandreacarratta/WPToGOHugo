@@ -8,31 +8,31 @@ namespace WPToGOHugo.WPEntity
 
     internal class Post
     {
-        [JsonProperty("id")]
-        public long Id { get; set; }
+        
+        public long id { get; set; }
 
-        [JsonProperty("title")]
-        public string Title { get; set; }
+        
+        public string title { get; set; }
 
-        [JsonProperty("content")]
-        public string Content { get; set; }
+        
+        public string content { get; set; }
 
-        [JsonProperty("link")]
-        public Uri Link { get; set; }
+        
+        public string link { get; set; }
 
-        [JsonProperty("category")]
-        public List<Category> Category { get; set; }
+        
+        public List<Category> category { get; set; }
 
-        [JsonProperty("tags")]
-        public List<Tag> Tags { get; set; }
+        
+        public Tags tags { get; set; }
 
-        [JsonProperty("pubDate")]
-        public string PubDate { get; set; }
+        
+        public string pubDate { get; set; }
 
-        [JsonProperty("dcCreator")]
-        public string DcCreator { get; set; }
+        
+        public string dcCreator { get; set; }
 
-        [JsonProperty("seo_metadesc")]
-        public string SeoMetadesc { get; set; }
+        
+        public string seo_metadesc { get; set; }
     }
 }
