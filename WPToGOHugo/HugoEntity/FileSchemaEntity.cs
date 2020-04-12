@@ -3,10 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace WPToGOHugo.JSONHelper
+namespace WPToGOHugo.HugoEntity
 {
-    class FileSchemaEntity
+
+    public class FileSchemaEntity
     {
+        [JsonIgnore]
+        public string FileName { get; set; }
+
         public string title { get; set; }
         public string date { get; set; }
 
@@ -35,6 +39,10 @@ namespace WPToGOHugo.JSONHelper
                 return $"[{catJoin}]";
             }
         }
+
+        public string seo_metadesc { get; set; }
+        public string seo_image { get; set; }
+        public string seo_focuskw { get; set; }
 
     }
 }

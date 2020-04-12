@@ -34,5 +34,8 @@ namespace WPToGOHugo.WPEntity
 
         
         public string seo_metadesc { get; set; }
+        public string seo_image { get; set; }
+        public string seo_focuskw { get; set; }
+        
     }
 }
