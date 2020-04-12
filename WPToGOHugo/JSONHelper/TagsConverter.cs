@@ -21,7 +21,7 @@ namespace WPToGOHugo.JSONHelper
                     var arrayValue = serializer.Deserialize<List<Tag>>(reader);
                     return new Tags { TagArray = arrayValue };
             }
-            throw new Exception("Cannot unmarshal type Tags");
+            return new Tags { TagArray = new List<Tag>() };
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

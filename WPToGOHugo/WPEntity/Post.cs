@@ -11,7 +11,9 @@ namespace WPToGOHugo.WPEntity
         
         public long id { get; set; }
 
-        
+        public string slug { get; set; }
+
+
         public string title { get; set; }
 
         

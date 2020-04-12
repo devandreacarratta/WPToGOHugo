@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WPToGOHugo.HugoEntity;
 using WPToGOHugo.WPEntity;
 
 namespace WPToGOHugo
@@ -17,6 +18,14 @@ namespace WPToGOHugo
         {
             var posts = Newtonsoft.Json.JsonConvert.DeserializeObject< PostCollection>(_json, JSONHelper.Converter.Settings);
 
+            FileSchemaEntityCollection files = new FileSchemaEntityCollection();
+
+            foreach (var item in posts)
+            {
+                files.Add(
+                    PostConverter.Run(item)
+                );
+            }
                
 
             return string.Empty;
