@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
 
 namespace WPToGOHugo.Cleaner
 {
-
     internal class CleanerDiviCodeSnippetBase64 : ICleaner
     {
         public string Run(string value)
         {
-
             value = value.Trim();
 
-                        StringBuilder sb = new StringBuilder();
-
+            StringBuilder sb = new StringBuilder();
 
             string pattern = @"(\[et_pb_text\s((.*?))\](?<pretextcontent>(.*?))\[\/et_pb_text\])|(\[et_pb_dmb_code_snippet\s(.*?)\](?<code64>.*?)\[.*?\])";
 
@@ -23,8 +17,6 @@ namespace WPToGOHugo.Cleaner
 
             foreach (Match match in items)
             {
-
-
                 string section = match.Groups["section"].Value;
                 if (string.IsNullOrEmpty(section) == false)
                 {
@@ -44,12 +36,9 @@ namespace WPToGOHugo.Cleaner
                         TextHelper.Base64Decode(base64Code)
                     );
                 }
-
-
             }
-            
-            return sb.ToString();
 
+            return sb.ToString();
         }
     }
 }

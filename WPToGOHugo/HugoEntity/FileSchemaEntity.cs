@@ -8,6 +8,7 @@ namespace WPToGOHugo.HugoEntity
     {
         [JsonIgnore]
         public string FileName { get; set; }
+
         public string author { get; set; }
         public string title { get; set; }
         public string content { get; set; }
@@ -57,8 +58,8 @@ namespace WPToGOHugo.HugoEntity
             }
         }
 
-        public string seo_metadesc { get; set; }
-        public string seo_image { get; set; }
+        public string description { get; set; }
+        public string image { get; set; }
         public string seo_focuskw { get; set; }
     }
 }

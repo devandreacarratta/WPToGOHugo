@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace WPToGOHugo
@@ -21,13 +22,13 @@ namespace WPToGOHugo
         public static string CleanBeforeMD(string input)
         {
             SortedDictionary<string, string> items = new SortedDictionary<string, string>();
-            items.Add("'", string.Empty);
 
             foreach (var item in items)
             {
                 input = input.Replace(item.Key, item.Value);
             }
 
+            input = WebUtility.HtmlEncode(input);
 
             return input;
         }

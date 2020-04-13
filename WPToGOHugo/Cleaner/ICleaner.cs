@@ -1,6 +1,6 @@
 ﻿namespace WPToGOHugo.Cleaner
 {
-    interface ICleaner
+    internal interface ICleaner
     {
         string Run(string value);
     }

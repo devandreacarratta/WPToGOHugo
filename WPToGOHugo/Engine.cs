@@ -1,6 +1,6 @@
-﻿using WPToGOHugo.HugoEntity;
+﻿using WPToGOHugo.Cleaner;
+using WPToGOHugo.HugoEntity;
 using WPToGOHugo.WPEntity;
-using WPToGOHugo.Cleaner;
 
 namespace WPToGOHugo
 {
@@ -47,7 +47,6 @@ namespace WPToGOHugo
 
             foreach (var item in posts)
             {
-
                 if (RunCleanerDiviCodeSnippetBase64)
                 {
                     item.content = cleanerBase64.Run(item.content);

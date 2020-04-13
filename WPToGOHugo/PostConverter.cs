@@ -13,13 +13,13 @@ namespace WPToGOHugo
             {
                 CategoriesList = new List<string>(),
                 TagsList = new List<string>(),
+                title = post.title,
                 date = post.pubDate,
+                image = post.seo_image,
+                description = post.seo_metadesc,
                 draft = false,
                 FileName = post.slug,
                 seo_focuskw = post.seo_focuskw,
-                seo_image = post.seo_image,
-                seo_metadesc = post.seo_metadesc,
-                title = post.title,
                 content = post.content,
                 author = post.dcCreator,
             };
