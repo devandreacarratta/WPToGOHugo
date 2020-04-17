@@ -6,7 +6,7 @@
         {
             Engine engine = new Engine(content)
             {
-                RunCleanerDiviCodeSnippetBase64 = false,
+                RunCleanerDiviCodeSnippetBase64 = true,
             };
             return engine.Run();
         }
