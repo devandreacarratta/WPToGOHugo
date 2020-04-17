@@ -22,6 +22,7 @@ namespace WPToGOHugo
                 seo_focuskw = post.seo_focuskw,
                 content = post.content,
                 author = post.dcCreator,
+                slug = post.slug,
             };
 
             if (post.category != null && post.category.Count != 0)

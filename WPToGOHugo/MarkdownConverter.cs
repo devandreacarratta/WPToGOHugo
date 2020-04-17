@@ -9,7 +9,8 @@ namespace WPToGOHugo
 
         public static string Run(string html)
         {
-            return _converter.Convert(html);
+            string result = _converter.Convert(html);
+            return result;
         }
 
 

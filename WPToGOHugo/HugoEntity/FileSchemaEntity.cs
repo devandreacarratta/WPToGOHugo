@@ -16,6 +16,8 @@ namespace WPToGOHugo.HugoEntity
 
         public bool draft { get; set; }
 
+        public string slug { get; set; }
+
         [JsonIgnore]
         public List<string> TagsList { get; set; } = new List<string>();
 

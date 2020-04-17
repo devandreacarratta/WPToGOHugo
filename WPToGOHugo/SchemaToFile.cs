@@ -16,11 +16,10 @@ namespace WPToGOHugo
             sb.AppendLine($"author: '{TextHelper.CleanBeforeMD(fileSchema.author)}'");
             sb.AppendLine($"date: {TextHelper.CleanBeforeMD(fileSchema.date)}");
             sb.AppendLine($"image: '{TextHelper.CleanBeforeMD(fileSchema.image)}'");
-            sb.AppendLine($"draft: {fileSchema.draft}");
+            sb.AppendLine($"draft: {fileSchema.draft}");            
+            sb.AppendLine($"slug: {TextHelper.CleanBeforeMD(fileSchema.slug)}");
             sb.AppendLine($"tags: [{fileSchema.tags}]");
             sb.AppendLine($"categories: [{fileSchema.categories}]");
-            //sb.AppendLine($"seometadesc: '{TextHelper.CleanBeforeMD(fileSchema.description)}'");
-            //sb.AppendLine($"seofocuskw: '{TextHelper.CleanBeforeMD(fileSchema.seo_focuskw)}'");
             sb.AppendLine(SPLIT_ROW);
             sb.AppendLine($"{fileSchema.content}");
             sb.AppendLine("");
