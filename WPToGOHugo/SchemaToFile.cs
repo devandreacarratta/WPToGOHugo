@@ -16,7 +16,7 @@ namespace WPToGOHugo
             sb.AppendLine($"author: '{TextHelper.CleanBeforeMD(fileSchema.author)}'");
             sb.AppendLine($"date: {TextHelper.CleanBeforeMD(fileSchema.date)}");
             sb.AppendLine($"image: '{TextHelper.CleanBeforeMD(fileSchema.image)}'");
-            sb.AppendLine($"draft: {fileSchema.draft}");            
+            sb.AppendLine($"draft: {fileSchema.draft}");
             sb.AppendLine($"slug: {TextHelper.CleanBeforeMD(fileSchema.slug)}");
             sb.AppendLine($"tags: [{fileSchema.tags}]");
             sb.AppendLine($"categories: [{fileSchema.categories}]");

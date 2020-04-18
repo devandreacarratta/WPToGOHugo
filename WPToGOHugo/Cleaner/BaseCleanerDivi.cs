@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Linq;
 
 namespace WPToGOHugo.Cleaner
 {
     internal class BaseCleanerDivi : ICleaner
     {
-
         protected List<string> _tags = new List<string>();
 
         public BaseCleanerDivi()
@@ -20,7 +16,6 @@ namespace WPToGOHugo.Cleaner
             _tags.Add("et_pb_row");
             _tags.Add("et_pb_column");
             _tags.Add("et_pb_text");
-
         }
 
         public virtual string Run(string value)
@@ -35,8 +30,6 @@ namespace WPToGOHugo.Cleaner
             }
             return value;
         }
-
-
 
         protected string RemoveTag(string input, string startTag, string endTag)
         {
@@ -58,13 +51,11 @@ namespace WPToGOHugo.Cleaner
 
             input = input.Replace(endTag, string.Empty);
 
-
             return input;
         }
 
         protected string RemoveTagWithBase64(string input, string startTag, string endTag, string markdown)
         {
-
             int startTagPos = input.IndexOf(startTag, 0, StringComparison.CurrentCultureIgnoreCase);
 
             if (startTagPos < 0)
@@ -75,9 +66,7 @@ namespace WPToGOHugo.Cleaner
             if (startTagClosePos <= startTagPos)
                 return input;
 
-
-            string base64Text = input.Substring(startTagClosePos + 1, input.IndexOf(endTag) - startTagClosePos-1);
-           
+            string base64Text = input.Substring(startTagClosePos + 1, input.IndexOf(endTag) - startTagClosePos - 1);
 
             string decodeText = TextHelper.Base64Decode(base64Text);
 
@@ -89,9 +78,7 @@ namespace WPToGOHugo.Cleaner
 
             input = input.Remove(input.IndexOf(endTag), endTag.Length);
 
-
             return input;
         }
-
     }
 }
