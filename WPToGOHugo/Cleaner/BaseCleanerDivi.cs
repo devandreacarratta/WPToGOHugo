@@ -10,12 +10,6 @@ namespace WPToGOHugo.Cleaner
         public BaseCleanerDivi()
         {
             _tags = new List<string>();
-            _tags.Add("et_pb_section");
-            _tags.Add("et_pb_column");
-            _tags.Add("et_pb_post_title");
-            _tags.Add("et_pb_row");
-            _tags.Add("et_pb_column");
-            _tags.Add("et_pb_text");
         }
 
         public virtual string Run(string value)
