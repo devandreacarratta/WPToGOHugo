@@ -11,6 +11,9 @@ namespace WPToGOHugo.Cleaner
 
         public override string Run(string value)
         {
+
+            value = base.Run(value);
+
             if (value.IndexOf(TAG_CODE) == -1)
             {
                 return value;

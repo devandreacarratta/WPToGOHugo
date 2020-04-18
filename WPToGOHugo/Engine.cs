@@ -47,12 +47,13 @@ namespace WPToGOHugo
 
             foreach (var item in posts)
             {
-                item.content = MarkdownConverter.Run(item.content);
-
+                
                 if (RunCleanerDiviCodeSnippetBase64)
                 {
                     item.content = cleanerBase64.Run(item.content);
                 }
+
+                item.content = MarkdownConverter.Run(item.content);
 
                 schemaEntities.Add(
                     PostConverter.Run(item)
