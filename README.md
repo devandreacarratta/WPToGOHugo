@@ -1,6 +1,6 @@
 # WPToGOHugo
 
-Export your WordPress Posts to Hugo!
+Export your WordPress Posts to Hugo! Unfortunatly, my blog was created with Divi and Divi Code Snippet plugin (et_pb_dmb_code_snippet) so I can write a custom export. The Code Snippet plugin save your data in base64 for example.
 
 ## How WPToGOHugo works
 
