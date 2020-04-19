@@ -32,5 +32,11 @@ namespace WPToGOHugo
 
             return input;
         }
+
+        public static string HtmlDecode(string input)
+        {
+            return WebUtility.HtmlDecode(input);
+        }
+
     }
 }

@@ -47,10 +47,15 @@ namespace WPToGOHugo
 
             foreach (var item in posts)
             {
+                item.title = TextHelper.HtmlDecode(item.title);
+                item.content = TextHelper.HtmlDecode(item.content);
+
                 if (RunCleanerDiviCodeSnippetBase64)
                 {
                     item.content = cleanerBase64.Run(item.content);
                 }
+
+                item.title = TextHelper.HtmlDecode(item.title);
 
                 item.content = MarkdownConverter.Run(item.content);
 
