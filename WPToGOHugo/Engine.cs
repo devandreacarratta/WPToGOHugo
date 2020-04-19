@@ -47,7 +47,6 @@ namespace WPToGOHugo
 
             foreach (var item in posts)
             {
-                
                 if (RunCleanerDiviCodeSnippetBase64)
                 {
                     item.content = cleanerBase64.Run(item.content);

@@ -18,7 +18,7 @@ namespace WPToGOHugo.Cleaner
             _tags.Add("et_pb_text");
             _tags.Add("et_pb_shop");
             _tags.Add("et_pb_image");
-            _tags.Add("et_pb_cta");   
+            _tags.Add("et_pb_cta");
         }
 
         public virtual string Run(string value)

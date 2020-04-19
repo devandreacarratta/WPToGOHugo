@@ -50,8 +50,20 @@ namespace WPToGOHugo.TestConsole
 
             foreach (var item in results)
             {
+                string folderName = Path.Combine(
+                        Helper.OutputFolder,
+                        item.PostYYYY);
+
+                if (Directory.Exists(folderName) == false)
+                {
+                    Directory.CreateDirectory(folderName);
+                }
+
                 File.WriteAllText(
-                    Path.Combine(Helper.OutputFolder, item.FileName),
+                    Path.Combine(
+                        Helper.OutputFolder,
+                        item.PostYYYY,
+                        $"{item.PostYYYY}-{item.PostMM}-{item.PostDD}-{item.FileName}"),
                     item.FileContent
                 );
             }
