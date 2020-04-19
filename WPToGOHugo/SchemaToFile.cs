@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using WPToGOHugo.HugoEntity;
 
 namespace WPToGOHugo
@@ -24,10 +25,16 @@ namespace WPToGOHugo
             sb.AppendLine($"{fileSchema.content}");
             sb.AppendLine("");
 
+            DateTime date = DateTime.UtcNow.Date;
+            _ = DateTime.TryParse(fileSchema.date, out date);
+
             SchemaToFileResult result = new SchemaToFileResult()
             {
                 FileContent = sb.ToString(),
-                FileName = $"{fileSchema.FileName}.md"
+                FileName = $"{fileSchema.FileName}.md",
+                PostYYYY = date.ToString("yyyy"),
+                PostMM = date.ToString("MM"),
+                PostDD = date.ToString("dd"),
             };
 
             return result;
