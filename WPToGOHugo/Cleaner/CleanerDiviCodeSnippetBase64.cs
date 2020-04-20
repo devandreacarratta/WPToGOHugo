@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace WPToGOHugo.Cleaner
@@ -8,6 +9,14 @@ namespace WPToGOHugo.Cleaner
         private const string FORMAT_SECTION = "```";
 
         private const string TAG_CODE = "et_pb_dmb_code_snippet";
+
+        SortedDictionary<string, string> _tagsToRemove = null;
+
+        public CleanerDiviCodeSnippetBase64():base()
+        {
+            _tagsToRemove = new SortedDictionary<string, string>();
+            _tagsToRemove.Add("<p>", "</p>");
+        }
 
         public override string Run(string value)
         {
@@ -32,11 +41,26 @@ namespace WPToGOHugo.Cleaner
             foreach (Match match in items)
             {
                 string content = match.Groups["content"].Value;
-                if (string.IsNullOrEmpty(content) == false)
+                if ((string.IsNullOrEmpty(content) == false) &&
+                    (string.IsNullOrEmpty(content.Trim()) == false))
                 {
+
+                    var contentClean = content.Trim();
+
+                    foreach (var item in _tagsToRemove)
+                    {
+                        if (contentClean.StartsWith(item.Key) && contentClean.EndsWith(item.Value))
+                        {
+                            contentClean = contentClean
+                                .Substring(0, contentClean.Length- item.Value.Length)
+                                .Substring(item.Key.Length);
+                        }
+
+                    }
+
                     try
                     {
-                        var decodeText = TextHelper.Base64Decode(content);
+                        var decodeText = TextHelper.Base64Decode(contentClean);
 
                         sb.AppendLine(FORMAT_SECTION);
                         sb.AppendLine(decodeText);
