@@ -7,8 +7,9 @@ namespace WPToGOHugo.Cleaner
     internal class CleanerDiviCodeSnippetBase64 : BaseCleanerDivi
     {
         private const string FORMAT_SECTION = "```";
-
         private const string TAG_CODE = "et_pb_dmb_code_snippet";
+        private const string ATTRIBUTE_TITLE = "title";
+        private const string ATTRIBUTE_LANGUAGE = "language";
 
         SortedDictionary<string, string> _tagsToRemove = null;
 
@@ -62,10 +63,12 @@ namespace WPToGOHugo.Cleaner
                     {
                         var decodeText = TextHelper.Base64Decode(contentClean);
 
+                        // It was a base64 text --> it's my code!
+
                         var snippet = match.Value;
                         
-                        string title = GetAttributeFromSnippet(snippet, "title");
-                        string language = GetAttributeFromSnippet(snippet, "language");
+                        string title = GetAttributeFromSnippet(snippet, ATTRIBUTE_TITLE);
+                        string language = GetAttributeFromSnippet(snippet, ATTRIBUTE_LANGUAGE);
 
                         if (string.IsNullOrEmpty(title) == false)
                         {
@@ -87,6 +90,7 @@ namespace WPToGOHugo.Cleaner
                     }
                     catch
                     {
+                        // It wasn't a base64 text --> it's a free text
                         sb.AppendLine(content);
                     }
                 }
