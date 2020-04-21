@@ -56,7 +56,6 @@ namespace WPToGOHugo.Cleaner
                                 .Substring(0, contentClean.Length - item.Value.Length)
                                 .Substring(item.Key.Length);
                         }
-
                     }
 
                     try

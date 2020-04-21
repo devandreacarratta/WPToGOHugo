@@ -55,7 +55,6 @@ namespace WPToGOHugo
                     item.content = cleanerBase64.Run(item.content);
                 }
 
-                item.title = TextHelper.HtmlDecode(item.title);
 
                 item.content = MarkdownConverter.Run(item.content);
 
