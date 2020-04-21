@@ -12,7 +12,7 @@ namespace WPToGOHugo.Cleaner
 
         SortedDictionary<string, string> _tagsToRemove = null;
 
-        public CleanerDiviCodeSnippetBase64():base()
+        public CleanerDiviCodeSnippetBase64() : base()
         {
             _tagsToRemove = new SortedDictionary<string, string>();
             _tagsToRemove.Add("<p>", "</p>");
@@ -52,7 +52,7 @@ namespace WPToGOHugo.Cleaner
                         if (contentClean.StartsWith(item.Key) && contentClean.EndsWith(item.Value))
                         {
                             contentClean = contentClean
-                                .Substring(0, contentClean.Length- item.Value.Length)
+                                .Substring(0, contentClean.Length - item.Value.Length)
                                 .Substring(item.Key.Length);
                         }
 
@@ -62,7 +62,26 @@ namespace WPToGOHugo.Cleaner
                     {
                         var decodeText = TextHelper.Base64Decode(contentClean);
 
-                        sb.AppendLine(FORMAT_SECTION);
+                        var snippet = match.Value;
+                        
+                        string title = GetAttributeFromSnippet(snippet, "title");
+                        string language = GetAttributeFromSnippet(snippet, "language");
+
+                        if (string.IsNullOrEmpty(title) == false)
+                        {
+
+                            sb.AppendLine($"*{title}*");
+                        }
+
+                        if (string.IsNullOrEmpty(language) == false)
+                        {
+
+                            sb.Append($"({language})");
+                        }
+                        
+
+
+                        sb.AppendLine(FORMAT_SECTION);                        
                         sb.AppendLine(decodeText);
                         sb.AppendLine(FORMAT_SECTION);
                     }
@@ -74,6 +93,20 @@ namespace WPToGOHugo.Cleaner
             }
 
             string result = sb.ToString();
+
+            return result;
+        }
+
+        private string GetAttributeFromSnippet(string snippet, string attribute)
+        {
+            if (snippet.Contains(attribute) == false)
+            {
+                return null;
+            }
+
+            int start = snippet.IndexOf(attribute) + attribute.Length + "=\"".Length;
+            string snippetSubset = snippet.Substring(start);
+            string result = snippetSubset.Substring(0, snippetSubset.IndexOf("\""));
 
             return result;
         }
