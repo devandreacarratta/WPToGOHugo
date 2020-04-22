@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace WPToGOHugo.Cleaner
 {
-    internal class CleanerDiviCodeSnippetBase64 : BaseCleanerDivi
+    internal class CleanerDiviCodeSnippetBase64 : ICleaner
     {
         private const string FORMAT_SECTION = "```";
         private const string TAG_CODE = "et_pb_dmb_code_snippet";
@@ -13,15 +13,14 @@ namespace WPToGOHugo.Cleaner
 
         SortedDictionary<string, string> _tagsToRemove = null;
 
-        public CleanerDiviCodeSnippetBase64() : base()
+        public CleanerDiviCodeSnippetBase64() 
         {
             _tagsToRemove = new SortedDictionary<string, string>();
             _tagsToRemove.Add("<p>", "</p>");
         }
 
-        public override string Run(string value)
+        public string Run(string value)
         {
-            value = base.Run(value);
 
             if (value.IndexOf(TAG_CODE) == -1)
             {
@@ -80,12 +79,15 @@ namespace WPToGOHugo.Cleaner
 
                             sb.Append($"({language})");
                         }
-                        
 
 
-                        sb.AppendLine(FORMAT_SECTION);                        
-                        sb.AppendLine(decodeText);
+                        sb.AppendLine(string.Empty);
                         sb.AppendLine(FORMAT_SECTION);
+                        sb.AppendLine(string.Empty);
+                        sb.AppendLine(decodeText);
+                        sb.AppendLine(string.Empty);
+                        sb.AppendLine(FORMAT_SECTION);
+                        sb.AppendLine(string.Empty);
                     }
                     catch
                     {
