@@ -11,9 +11,9 @@ namespace WPToGOHugo.Cleaner
         private const string ATTRIBUTE_TITLE = "title";
         private const string ATTRIBUTE_LANGUAGE = "language";
 
-        SortedDictionary<string, string> _tagsToRemove = null;
+        private SortedDictionary<string, string> _tagsToRemove = null;
 
-        public CleanerDiviCodeSnippetBase64() 
+        public CleanerDiviCodeSnippetBase64()
         {
             _tagsToRemove = new SortedDictionary<string, string>();
             _tagsToRemove.Add("<p>", "</p>");
@@ -21,7 +21,6 @@ namespace WPToGOHugo.Cleaner
 
         public string Run(string value)
         {
-
             if (value.IndexOf(TAG_CODE) == -1)
             {
                 return value;
@@ -44,7 +43,6 @@ namespace WPToGOHugo.Cleaner
                 if ((string.IsNullOrEmpty(content) == false) &&
                     (string.IsNullOrEmpty(content.Trim()) == false))
                 {
-
                     var contentClean = content.Trim();
 
                     foreach (var item in _tagsToRemove)
@@ -64,22 +62,19 @@ namespace WPToGOHugo.Cleaner
                         // It was a base64 text --> it's my code!
 
                         var snippet = match.Value;
-                        
+
                         string title = GetAttributeFromSnippet(snippet, ATTRIBUTE_TITLE);
                         string language = GetAttributeFromSnippet(snippet, ATTRIBUTE_LANGUAGE);
 
                         if (string.IsNullOrEmpty(title) == false)
                         {
-
                             sb.AppendLine($"*{title}*");
                         }
 
                         if (string.IsNullOrEmpty(language) == false)
                         {
-
                             sb.Append($"({language})");
                         }
-
 
                         sb.AppendLine(string.Empty);
                         sb.AppendLine(FORMAT_SECTION);

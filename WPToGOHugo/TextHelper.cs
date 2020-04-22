@@ -37,6 +37,5 @@ namespace WPToGOHugo
         {
             return WebUtility.HtmlDecode(input);
         }
-
     }
 }

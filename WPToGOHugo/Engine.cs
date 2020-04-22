@@ -52,7 +52,6 @@ namespace WPToGOHugo
         {
             FileSchemaEntityCollection schemaEntities = new FileSchemaEntityCollection();
 
-
             BaseCleanerDivi baseCleanerDivi = (BlogWithDivi ? new BaseCleanerDivi() : null);
             CleanerDiviCodeSnippetBase64 cleanerBase64 = (RunCleanerDiviCodeSnippetBase64 ? new CleanerDiviCodeSnippetBase64() : null);
 
@@ -72,9 +71,6 @@ namespace WPToGOHugo
                 {
                     item.content = cleanerBase64.Run(item.content);
                 }
-
-
-
 
                 schemaEntities.Add(
                     PostConverter.Run(item)
