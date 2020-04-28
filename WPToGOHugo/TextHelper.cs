@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
@@ -31,6 +32,24 @@ namespace WPToGOHugo
             input = WebUtility.HtmlEncode(input);
 
             return input;
+        }
+
+        private static SortedDictionary<string, string> _cacheTagsAndCategories = new SortedDictionary<string, string>();
+
+        public static string CleanTagsAndCategories(string input)
+        {
+            string result = string.Empty;
+
+            if (_cacheTagsAndCategories.TryGetValue(input, out result) == false)
+            {
+
+                result = SlugHelper.Generate(input);
+
+                _cacheTagsAndCategories.Add(input, result);
+            }
+
+
+            return result;
         }
 
         public static string HtmlDecode(string input)
