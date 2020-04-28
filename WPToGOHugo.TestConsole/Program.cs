@@ -50,6 +50,8 @@ namespace WPToGOHugo.TestConsole
 
             foreach (var item in results)
             {
+                item.PostLanguage = "it";
+
                 string folderName = Path.Combine(
                         Helper.OutputFolder,
                         item.PostYYYY);
@@ -59,11 +61,20 @@ namespace WPToGOHugo.TestConsole
                     Directory.CreateDirectory(folderName);
                 }
 
+                string fileName = $"{item.PostYYYY}-{item.PostMM}-{item.PostDD}-{item.FileName}";
+
+                if(string.IsNullOrEmpty(item.PostLanguage)==false){
+                    fileName += $".{item.PostLanguage}";
+                }
+
+                fileName += $".{item.FileContentExtension}";
+
                 File.WriteAllText(
                     Path.Combine(
                         Helper.OutputFolder,
                         item.PostYYYY,
-                        $"{item.PostYYYY}-{item.PostMM}-{item.PostDD}-{item.FileName}"),
+                        fileName
+                       ),
                     item.FileContent
                 );
             }
