@@ -12,12 +12,37 @@ namespace WPToGOHugo.Cleaner
         private const string ATTRIBUTE_LANGUAGE = "language";
 
         private SortedDictionary<string, string> _tagsToRemove = null;
+        private SortedDictionary<string, string> TagsToRemove
+        {
+            get
+            {
+                if(_tagsToRemove == null)
+                {
+                    _tagsToRemove = new SortedDictionary<string, string>();
+                    _tagsToRemove.Add("<p>", "</p>");
+                }
+                return _tagsToRemove;
+            }
+        }
+        private SortedDictionary<string, string> _shortCodeToRemove = null;
+        private SortedDictionary<string, string> ShortCodeToRemove
+        {
+            get
+            {
+                if (_shortCodeToRemove == null)
+                {
+                    _shortCodeToRemove = new SortedDictionary<string, string>();
+                    _shortCodeToRemove.Add("[et_pb_dmb_code_snippet]","[/et_pb_dmb_code_snippet]");
+                }
+                return _shortCodeToRemove;
+            }
+        }
 
         public CleanerDiviCodeSnippetBase64()
         {
-            _tagsToRemove = new SortedDictionary<string, string>();
-            _tagsToRemove.Add("<p>", "</p>");
         }
+
+        
 
         public string Run(string value)
         {
@@ -45,7 +70,7 @@ namespace WPToGOHugo.Cleaner
                 {
                     var contentClean = content.Trim();
 
-                    foreach (var item in _tagsToRemove)
+                    foreach (var item in TagsToRemove)
                     {
                         if (contentClean.StartsWith(item.Key) && contentClean.EndsWith(item.Value))
                         {
@@ -87,7 +112,25 @@ namespace WPToGOHugo.Cleaner
                     catch
                     {
                         // It wasn't a base64 text --> it's a free text
-                        sb.AppendLine(content);
+
+                        string matchValue = match.Value;
+
+                        foreach (var item in ShortCodeToRemove)
+                        {
+                            if (matchValue.Contains(item.Key))
+                            {
+                                matchValue = matchValue.Replace(item.Key, string.Empty);
+                            }
+
+                            if (matchValue.Contains(item.Value))
+                            {
+                                matchValue = matchValue.Replace(item.Value, string.Empty);
+                            }
+                        }
+
+                        matchValue = matchValue.Trim();
+
+                        sb.AppendLine(matchValue);
                     }
                 }
             }
