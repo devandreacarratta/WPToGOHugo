@@ -31,7 +31,7 @@ namespace WPToGOHugo
             SchemaToFileResult result = new SchemaToFileResult()
             {
                 FileContent = sb.ToString(),
-                FileName = $"{fileSchema.FileName}.md",
+                FileName = $"{fileSchema.FileName}",
                 PostYYYY = date.ToString("yyyy"),
                 PostMM = date.ToString("MM"),
                 PostDD = date.ToString("dd"),

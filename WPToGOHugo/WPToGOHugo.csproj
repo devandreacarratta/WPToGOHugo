@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Html2Markdown" Version="3.3.1.407" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Sluggy" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>

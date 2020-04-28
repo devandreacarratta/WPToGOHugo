@@ -33,6 +33,7 @@ namespace WPToGOHugo.HugoEntity
                 {
                     foreach (var item in TagsList)
                     {
+                        string tag = TextHelper.CleanTagsAndCategories(item);
                         sb.Append($"'{TextHelper.CleanBeforeMD(item)}',");
                     }
                     sb.Length -= 1;
@@ -51,7 +52,8 @@ namespace WPToGOHugo.HugoEntity
                 {
                     foreach (var item in CategoriesList)
                     {
-                        sb.Append($"'{TextHelper.CleanBeforeMD(item)}',");
+                        string category = TextHelper.CleanTagsAndCategories(item);
+                        sb.Append($"'{TextHelper.CleanBeforeMD(category)}',");
                     }
                     sb.Length -= 1;
                 }
