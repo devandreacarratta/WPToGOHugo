@@ -12,11 +12,12 @@ namespace WPToGOHugo.Cleaner
         private const string ATTRIBUTE_LANGUAGE = "language";
 
         private SortedDictionary<string, string> _tagsToRemove = null;
+
         private SortedDictionary<string, string> TagsToRemove
         {
             get
             {
-                if(_tagsToRemove == null)
+                if (_tagsToRemove == null)
                 {
                     _tagsToRemove = new SortedDictionary<string, string>();
                     _tagsToRemove.Add("<p>", "</p>");
@@ -24,7 +25,9 @@ namespace WPToGOHugo.Cleaner
                 return _tagsToRemove;
             }
         }
+
         private SortedDictionary<string, string> _shortCodeToRemove = null;
+
         private SortedDictionary<string, string> ShortCodeToRemove
         {
             get
@@ -32,7 +35,7 @@ namespace WPToGOHugo.Cleaner
                 if (_shortCodeToRemove == null)
                 {
                     _shortCodeToRemove = new SortedDictionary<string, string>();
-                    _shortCodeToRemove.Add("[et_pb_dmb_code_snippet]","[/et_pb_dmb_code_snippet]");
+                    _shortCodeToRemove.Add("[et_pb_dmb_code_snippet]", "[/et_pb_dmb_code_snippet]");
                 }
                 return _shortCodeToRemove;
             }
@@ -41,8 +44,6 @@ namespace WPToGOHugo.Cleaner
         public CleanerDiviCodeSnippetBase64()
         {
         }
-
-        
 
         public string Run(string value)
         {
