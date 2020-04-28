@@ -63,7 +63,8 @@ namespace WPToGOHugo.TestConsole
 
                 string fileName = $"{item.PostYYYY}-{item.PostMM}-{item.PostDD}-{item.FileName}";
 
-                if(string.IsNullOrEmpty(item.PostLanguage)==false){
+                if (string.IsNullOrEmpty(item.PostLanguage) == false)
+                {
                     fileName += $".{item.PostLanguage}";
                 }
 

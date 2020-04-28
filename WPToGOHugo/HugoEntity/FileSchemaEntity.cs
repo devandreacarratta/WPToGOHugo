@@ -66,6 +66,4 @@ namespace WPToGOHugo.HugoEntity
         public string image { get; set; }
         public string seo_focuskw { get; set; }
     }
-
-
 }

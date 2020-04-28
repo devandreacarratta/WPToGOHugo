@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
@@ -42,12 +41,10 @@ namespace WPToGOHugo
 
             if (_cacheTagsAndCategories.TryGetValue(input, out result) == false)
             {
-
                 result = SlugHelper.Generate(input);
 
                 _cacheTagsAndCategories.Add(input, result);
             }
-
 
             return result;
         }
